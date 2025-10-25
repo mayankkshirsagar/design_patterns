@@ -1,0 +1,31 @@
+The Singleton Design Pattern is one of the simplest and most commonly used creational design patterns in Java.
+It ensures that:
+Only one instance of a class is created during the entire runtime of the application.
+It provides a global point of access to that instance.
+
+Real-world analogy:
+Think of a printer spooler or a database connection pool —
+you typically want only one instance managing access to a shared resource.
+
+Key Characteristics
+Private constructor: Prevents direct instantiation using new.
+Static instance: Holds the single object of the class.
+Public static method: Provides controlled access to that single instance.
+
+Problems
+In multithreaded programs, multiple threads could create multiple instances simultaneously.
+
+Resolution
+To prevent this we will need a thread safe implementation.
+Option 1: Synchronized Method
+Option 2: Double-Checked Locking (Efficient)
+Option 3: Bill Pugh’s Inner Static Class (Best Practice)
+
+| Implementation         | Thread-Safe | Lazy      | Recommended               |
+| ---------------------- | ----------- | --------- | ------------------------- |
+| Basic                  | ❌           | ✅         | ❌                         |
+| Synchronized           | ✅           | ✅         | ⚠️ (Performance overhead) |
+| Double-Checked Locking | ✅           | ✅         | ✅                         |
+| Inner Static Class     | ✅           | ✅         | ✅                         |
+| Enum                   | ✅           | ❌ (eager) | ✅ (Best overall)          |
+
