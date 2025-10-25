@@ -10,6 +10,8 @@ public class Singleton {
         System.out.println("Singleton instance created!");
     }
 
+    // basic implementation, not thread safe
+    // In multithreaded programs, multiple threads could create multiple instances simultaneously
     public static Singleton getInstance() {
         if (instance == null) {  // Lazy initialization
             instance = new Singleton();
