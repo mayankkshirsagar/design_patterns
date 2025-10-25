@@ -7,6 +7,12 @@ public class Singleton {
 
     // 2. Make the constructor private so no one can instantiate directly
     private Singleton() {
+
+        /** to make reflection safe, Option 4 Enum based solution does not need it
+        if (instance/volatileInstance != null) {
+            throw new RuntimeException("Use getInstance() method to create");
+        }
+         */
         System.out.println("Singleton instance created!");
     }
 
@@ -62,7 +68,11 @@ public class Singleton {
         }
     }
 
-
+    /** to make serialization safe, Option 4 Enum based solution does not need it
+    private Object readResolve() {
+        return getInstance();
+    }
+     */
 
     // Example method
     public void showMessage() {
