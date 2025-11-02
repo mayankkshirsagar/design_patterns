@@ -1,0 +1,28 @@
+What is the Strategy Pattern?
+The Strategy Pattern is a behavioral design pattern that allows you to define a family of algorithms (strategies),
+encapsulate each one, and make them interchangeable.
+It lets you change an object’s behavior at runtime without modifying its code.
+
+When to Use It
+Use the Strategy pattern when:
+You have multiple ways of performing a similar task (e.g., different sorting algorithms, payment methods, or compression strategies).
+You want to avoid a lot of if-else or switch statements that choose behavior.
+You need to change the behavior of a class dynamically.
+
+Structure
+Strategy Interface — defines a common interface for all algorithms.
+Concrete Strategies — implement the algorithm in different ways.
+Context — maintains a reference to a Strategy object and delegates behavior to it.
+
+Benefits
+Open/Closed Principle: Add new strategies without modifying existing code.
+Avoids conditional logic: Replaces if-else blocks with polymorphism.
+Runtime flexibility: You can change the algorithm dynamically.
+
+Drawbacks
+Increases the number of classes (one per strategy).
+The client must know what strategies are available.
+
+Real-world Examples
+Java’s Comparator interface (Collections.sort(list, comparator) uses a strategy).
+Payment gateways, sorting algorithms, or data compression formats.
