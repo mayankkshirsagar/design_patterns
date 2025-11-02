@@ -1,0 +1,41 @@
+Creational Patterns
+Deal with object creation — making systems independent of how objects are created and represented.
+
+| Pattern              | Purpose                                                                                           | Common Example                                        |
+| -------------------- | ------------------------------------------------------------------------------------------------- | ----------------------------------------------------- |
+| **Singleton**        | Ensures only **one instance** of a class exists and provides a global access point to it.         | Database connection, Logger                           |
+| **Factory Method**   | Defines an interface for creating objects, but lets subclasses decide which class to instantiate. | Document or Shape factory                             |
+| **Abstract Factory** | Creates **families of related objects** without specifying concrete classes.                      | GUI toolkit (Windows vs Mac buttons)                  |
+| **Builder**          | Separates the construction of a complex object from its representation.                           | Building objects like `StringBuilder`, `PizzaBuilder` |
+| **Prototype**        | Creates new objects by **cloning** an existing instance.                                          | Copying configuration or templates                    |
+
+
+Structural Patterns
+Concerned with object composition — how classes and objects work together.
+
+| Pattern       | Purpose                                                                             | Common Example                                      |
+| ------------- | ----------------------------------------------------------------------------------- | --------------------------------------------------- |
+| **Adapter**   | Converts one interface into another expected by the client.                         | Plug adapter, legacy API integration                |
+| **Decorator** | Dynamically adds new behavior to objects without altering their structure.          | Java I/O streams (e.g., `BufferedInputStream`)      |
+| **Proxy**     | Provides a **surrogate** or placeholder for another object to control access to it. | Remote proxy, lazy loading, security proxy          |
+| **Facade**    | Provides a **unified interface** to a set of interfaces in a subsystem.             | Simplified API over complex subsystems              |
+| **Composite** | Treats individual objects and compositions of objects **uniformly**.                | File system (Files and Folders)                     |
+| **Bridge**    | Decouples an abstraction from its implementation so they can vary independently.    | UI abstraction and platform-specific implementation |
+| **Flyweight** | Shares common object data to **minimize memory usage**.                             | Character objects in text rendering                 |
+
+
+Behavioral Patterns
+Deal with communication between objects — how they interact and distribute responsibilities.
+
+| Pattern                     | Purpose                                                                                        | Common Example                               |
+| --------------------------- | ---------------------------------------------------------------------------------------------- | -------------------------------------------- |
+| **Strategy**                | Defines a family of algorithms and makes them interchangeable.                                 | Payment methods, sorting strategies          |
+| **Observer**                | Allows objects to be notified automatically of state changes in another object.                | Event listeners, UI updates, pub-sub systems |
+| **Command**                 | Encapsulates a request as an object, allowing undo/redo and queuing.                           | Text editors (Undo/Redo commands)            |
+| **State**                   | Allows an object to change behavior when its internal state changes.                           | Traffic lights, vending machines             |
+| **Chain of Responsibility** | Passes a request along a chain of handlers until one handles it.                               | Logging chains, middleware pipelines         |
+| **Template Method**         | Defines the skeleton of an algorithm, letting subclasses fill in specific steps.               | Abstract class with `final` template method  |
+| **Mediator**                | Centralizes complex communication between multiple objects.                                    | Chatroom, air traffic control system         |
+| **Iterator**                | Provides a way to access elements of a collection sequentially without exposing its structure. | `Iterator` in Java Collections               |
+| **Memento**                 | Captures and restores an object’s internal state without exposing its details.                 | Undo/Redo in text editors                    |
+| **Visitor**                 | Allows adding new operations to existing object structures without modifying them.             | Operations on composite object trees         |
