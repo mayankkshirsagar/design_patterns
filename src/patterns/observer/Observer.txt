@@ -1,0 +1,82 @@
+What Is the Observer Pattern?
+The Observer Pattern is a behavioral design pattern that defines a one-to-many dependency between objects.
+When one object (the subject) changes its state, all its dependents (observers) are automatically notified and updated
+Think of it like YouTube subscriptions:
+You (the observer) subscribe to a channel (the subject).
+When the channel uploads a new video (state change), you get notified automatically.
+
+Key Components
+
+Subject (Observable)
+    Keeps track of observers.
+    Provides methods to attach/detach observers.
+    Notifies observers when its state changes.
+Observer
+    Defines an update() method that gets called when the subject changes.
+
+Example
+A Weather Station (subject) notifies displays (observers) when the temperature changes.
+
+Why Use the Observer Pattern?
+Pros:
+Promotes loose coupling (subject doesn’t need to know the observer details).
+Easy to add/remove observers dynamically.
+Widely used in event-driven systems (GUIs, messaging, reactive systems).
+Cons:
+Can lead to unexpected updates if too many observers.
+Order of notifications may matter in complex systems.
+
+Built-in Support in Java
+Older Java versions had java.util.Observable and java.util.Observer, but these are deprecated (since Java 9).
+Modern Java uses alternatives like:
+PropertyChangeListener / PropertyChangeSupport
+Reactive Streams (Flow API) introduced in Java 9
+Event-driven frameworks
+
+Push vs. Pull in the Observer Pattern
+When the subject notifies its observers, it can do so in two main ways:
+| Type           | How it Works                                                                                                                              | Example                                                              |
+| -------------- | ----------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------- |
+| **Push-based** | The subject **pushes** all relevant data to observers when it changes.                                                                    | “Hey observer, the temperature is now 25.5°C!”                       |
+| **Pull-based** | The subject just notifies observers **that something changed**, and each observer **pulls (fetches)** the data it needs from the subject. | “Hey observer, I’ve changed — come get the new data if you want it.” |
+
+Push-Based
+o.update(temperature);
+The subject (WeatherStation) directly pushes the new temperature to each observer.
+Observers don’t need to ask for it — they just receive it.
+
+Pull-Based Version
+In a pull-based observer pattern, the update() method typically takes no arguments.
+Instead, the observer receives a notification and pulls what it needs from the subject.
+
+| Aspect       | Push-Based                                | Pull-Based                                       |
+| ------------ | ----------------------------------------- | ------------------------------------------------ |
+| Notification | Subject sends data directly               | Subject just notifies of change                  |
+| Flexibility  | Less flexible (fixed data sent)           | More flexible (observer chooses what to pull)    |
+| Simplicity   | Simpler when you know what data is needed | More generic and decoupled                       |
+| Coupling     | Observer depends on pushed data structure | Observer depends on subject’s API (to pull data) |
+
+The pull-based version lets observers fetch what they want — it’s often considered cleaner and more general in large systems.
+
+Hybrid Push–Pull Observer Pattern
+This combines the strengths of both models:
+The subject (observable) pushes a minimal signal or hint when it changes (e.g., what changed).
+The observer then pulls any further details it needs.
+So, instead of either:
+Pushing all data every time (push), or
+Pushing nothing at all (pull),
+we send just enough context for observers to react intelligently.
+
+| Pattern Type            | Push                     | Pull                     | Hybrid                                |
+| ----------------------- | ------------------------ | ------------------------ | ------------------------------------- |
+| What’s sent to observer | All data                 | Just “something changed” | Minimal context (e.g., property name) |
+| Observer responsibility | Passive                  | Active (fetches)         | Balanced                              |
+| Coupling                | Tighter                  | Looser                   | Moderate                              |
+| Example uses            | Event callbacks, streams | MVC models, data binding | GUI frameworks, property listeners    |
+
+
+In real-world Java:
+This hybrid approach is used in things like:
+PropertyChangeListener and PropertyChangeEvent
+JavaFX’s ObservableValue and ChangeListener
+Spring’s event publishing system
