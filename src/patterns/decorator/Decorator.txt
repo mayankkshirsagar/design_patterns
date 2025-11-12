@@ -30,3 +30,5 @@ Debugging can be harder because of multiple layers of wrapping.
 When to Use
 When you need to add behavior dynamically to individual objects.
 When you want to avoid subclass explosion from multiple combinations of behaviors.
+
+Java examples : BufferedReader, InputStream
