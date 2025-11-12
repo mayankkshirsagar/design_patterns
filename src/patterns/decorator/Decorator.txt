@@ -1,0 +1,32 @@
+The Decorator Pattern in Java (and in general object-oriented design) is a structural design pattern,
+that lets you dynamically add new behavior or responsibilities to an object without modifying its existing code.
+
+Core Idea
+Instead of subclassing to add functionality, the decorator pattern uses composition,
+you “wrap” an object inside another object that provides the additional behavior.
+
+Real-World Analogy
+Think of a coffee shop:
+You start with a basic coffee (core object).
+You can add milk, sugar, or whipped cream,
+each decorator adds extra behavior (cost, description) without altering the base coffee class.
+
+Structure
+Participants:
+Component (Interface or Abstract Class) - Defines the common interface for both the original objects and decorators.
+ConcreteComponent (Real Object) - The original object being decorated.
+Decorator (Abstract Class) - Implements the same interface and holds a reference to a Component.
+ConcreteDecorator (Wrapper) - Extends the decorator class to add extra functionality.
+
+Advantages
+Add responsibilities dynamically at runtime.
+Avoids a large inheritance hierarchy.
+Follows Open/Closed Principle (open for extension, closed for modification).
+
+Disadvantages
+Can lead to many small classes (if overused).
+Debugging can be harder because of multiple layers of wrapping.
+
+When to Use
+When you need to add behavior dynamically to individual objects.
+When you want to avoid subclass explosion from multiple combinations of behaviors.
